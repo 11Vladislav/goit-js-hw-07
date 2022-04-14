@@ -1,14 +1,19 @@
 import { galleryItems } from './gallery-items.js';
+
 // Change code below this line
 
-const galleryEl = document.querySelector('.gallery');
-galleryCreate(galleryItems, galleryEl);
 
-new SimpleLightbox('.gallery a', { captionsData: 'alt', captionDelay: 250 });
+const galleryEl = document.querySelector('.gallery'); // получение элемента галереи
+galleryCreate(galleryItems, galleryEl); // создание галереи
 
-function galleryCreate(list, place) {
-    const elMarkup = list.map(event => `<a class="gallery__item" href="${event.original}" onclick="event.preventDefault()">
-        <img class="gallery__image" src="${event.preview}" alt="${event.description}" />
-        </a>`).join('')
-    place.innerHTML = elMarkup;
+new SimpleLightbox('.gallery a', { captionsData: 'alt', captionDelay: 250 }); // подключение модального окна к галерее
+
+function galleryCreate(list, place) { // функция создания галереи
+    const markup = list.map(event => // подстановка данных из массива в шаблон
+        `<a class="gallery__item" href="${event.original}"
+         onclick="event.preventDefault()">
+        <img class="gallery__image" src="${event.preview}" 
+        alt="${event.description}" />
+        </a>`).join(''); // создание строки из массива
+  place.innerHTML = markup; // вставка строки в элемент галереи
 }
