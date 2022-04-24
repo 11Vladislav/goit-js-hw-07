@@ -16,8 +16,10 @@ function pictureClick(event) { // обработчик события клика
     window.addEventListener('keydown', event => {  // обработчик события нажатия клавиши на клавиатуре
         if (event.code === "Escape") { // проверка на нажатие клавиши Escape
         instance.close(); // закрытие модального окна
-        };
+      };
+      window.removeEventListener('keydown', event); // удаление обработчика события нажатия клавиши на клавиатуре
     });
+  
 }
 
 function galleryCreate(list, place) { // функция создания галереи
