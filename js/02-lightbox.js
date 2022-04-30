@@ -1,4 +1,4 @@
-import { galleryItems } from './gallery-items.js';
+import { galleryItems } from './gallery-items.js'; // подключение массива данных из файла gallery-items.js
 
 // Change code below this line
 
